@@ -2,15 +2,30 @@ ViewPropertyObjectAnimator
 ==================
 
 [![License](https://img.shields.io/github/license/blipinsk/RecyclerViewHeader.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/com.bartoszlipinski/viewpropertyobjectanimator.svg)](http://gradleplease.appspot.com/#viewpropertyobjectanimator)
 
 Wrapper of the `ObjectAnimator` that can be used similarly to `ViewPropertyAnimator`.
 
-`ViewPropertyObjectAnimator` is as easy to use as `ViewPropertyAnimator` and (unlike `ViewPropertyAnimator`) lets you utilize all the awesome features that `ObjectAnimator` allows (e.g. you can use `ViewPropertyObjectAnimator` with `AnimatorSet`).
+`ViewPropertyObjectAnimator` is as easy to use as `ViewPropertyAnimator` and (unlike `ViewPropertyAnimator`) lets you utilize all the awesome features that `ObjectAnimator` allows (e.g. it can be used inside `AnimatorSet`).
 
 Usage
 =====
 
-TODO
+To obtain an `ObjectAnimator` object:
+
+  1. Use the static `animate(View view)` method of the `ViewPropertyObjectAnimator`
+  2. Call specific `ViewPropertyObjectAnimator` methods to setup an animation of desired properties (just like you would when using `ViewPropertyAnimator`)
+  3. Call `get()` method, like so:
+
+        ObjectAnimator animator = ViewPropertyObjectAnimator
+                .animate(mView)
+                .withLayer()
+                .alpha(0f)
+                .scaleX(0f)
+                .scaleY(0f)
+                .setDuration(300)
+                .setInterpolator(new AnticipateInterpolator())
+                .get();
 
 
 Including In Your Project
