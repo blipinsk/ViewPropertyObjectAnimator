@@ -47,6 +47,9 @@ public class ViewPropertyObjectAnimator {
     private List<ValueAnimator.AnimatorUpdateListener> mUpdateListeners = new ArrayList<>();
     private List<Animator.AnimatorPauseListener> mPauseListeners = new ArrayList<>();
     private ArrayMap<Property<View, Float>, PropertyValuesHolder> mPropertyHoldersMap = new ArrayMap<>();
+    private MarginChangeListener mMarginListener;
+    private DimensionChangeListener mDimensionListener;
+    private PaddingChangeListener mPaddingListener;
 
     private ViewPropertyObjectAnimator(View view) {
         mView = new WeakReference<View>(view);
@@ -220,6 +223,276 @@ public class ViewPropertyObjectAnimator {
         return this;
     }
 
+    public ViewPropertyObjectAnimator leftMargin(int leftMargin) {
+        if (initMarginListener()) {
+            mMarginListener.leftMargin(leftMargin);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator leftMarginBy(int leftMarginBy) {
+        if (initMarginListener()) {
+            mMarginListener.leftMarginBy(leftMarginBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator topMargin(int topMargin) {
+        if (initMarginListener()) {
+            mMarginListener.topMargin(topMargin);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator topMarginBy(int topMarginBy) {
+        if (initMarginListener()) {
+            mMarginListener.topMarginBy(topMarginBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator rightMargin(int rightMargin) {
+        if (initMarginListener()) {
+            mMarginListener.rightMargin(rightMargin);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator rightMarginBy(int rightMarginBy) {
+        if (initMarginListener()) {
+            mMarginListener.rightMarginBy(rightMarginBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator bottomMargin(int bottomMargin) {
+        if (initMarginListener()) {
+            mMarginListener.bottomMargin(bottomMargin);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator bottomMarginBy(int bottomMarginBy) {
+        if (initMarginListener()) {
+            mMarginListener.bottomMarginBy(bottomMarginBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator horizontalMargin(int horizontalMargin) {
+        if (initMarginListener()) {
+            mMarginListener.horizontalMargin(horizontalMargin);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator horizontalMarginBy(int horizontalMarginBy) {
+        if (initMarginListener()) {
+            mMarginListener.horizontalMarginBy(horizontalMarginBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator verticalMargin(int verticalMargin) {
+        if (initMarginListener()) {
+            mMarginListener.verticalMargin(verticalMargin);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator verticalMarginBy(int verticalMarginBy) {
+        if (initMarginListener()) {
+            mMarginListener.verticalMarginBy(verticalMarginBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator margin(int margin) {
+        if (initMarginListener()) {
+            mMarginListener.margin(margin);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator marginBy(int marginBy) {
+        if (initMarginListener()) {
+            mMarginListener.marginBy(marginBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator width(int width) {
+        if (initDimensionListener()) {
+            mDimensionListener.width(width);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator widthBy(int widthBy) {
+        if (initDimensionListener()) {
+            mDimensionListener.widthBy(widthBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator height(int height) {
+        if (initDimensionListener()) {
+            mDimensionListener.height(height);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator heightBy(int heightBy) {
+        if (initDimensionListener()) {
+            mDimensionListener.heightBy(heightBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator size(int size) {
+        if (initDimensionListener()) {
+            mDimensionListener.size(size);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator sizeBy(int sizeBy) {
+        if (initDimensionListener()) {
+            mDimensionListener.sizeBy(sizeBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator leftPadding(int leftPadding) {
+        if (initPaddingListener()) {
+            mPaddingListener.leftPadding(leftPadding);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator leftPaddingBy(int leftPaddingBy) {
+        if (initPaddingListener()) {
+            mPaddingListener.leftPaddingBy(leftPaddingBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator topPadding(int topPadding) {
+        if (initPaddingListener()) {
+            mPaddingListener.topPadding(topPadding);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator topPaddingBy(int topPaddingBy) {
+        if (initPaddingListener()) {
+            mPaddingListener.topPaddingBy(topPaddingBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator rightPadding(int rightPadding) {
+        if (initPaddingListener()) {
+            mPaddingListener.rightPadding(rightPadding);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator rightPaddingBy(int rightPaddingBy) {
+        if (initPaddingListener()) {
+            mPaddingListener.rightPaddingBy(rightPaddingBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator bottomPadding(int bottomPadding) {
+        if (initPaddingListener()) {
+            mPaddingListener.bottomPadding(bottomPadding);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator bottomPaddingBy(int bottomPaddingBy) {
+        if (initPaddingListener()) {
+            mPaddingListener.bottomPaddingBy(bottomPaddingBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator horizontalPadding(int horizontalPadding) {
+        if (initPaddingListener()) {
+            mPaddingListener.horizontalPadding(horizontalPadding);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator horizontalPaddingBy(int horizontalPaddingBy) {
+        if (initPaddingListener()) {
+            mPaddingListener.horizontalPaddingBy(horizontalPaddingBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator verticalPadding(int verticalPadding) {
+        if (initPaddingListener()) {
+            mPaddingListener.verticalPadding(verticalPadding);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator verticalPaddingBy(int verticalPaddingBy) {
+        if (initPaddingListener()) {
+            mPaddingListener.verticalPaddingBy(verticalPaddingBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator padding(int padding) {
+        if (initPaddingListener()) {
+            mPaddingListener.padding(padding);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator paddingBy(int paddingBy) {
+        if (initPaddingListener()) {
+            mPaddingListener.paddingBy(paddingBy);
+        }
+        return this;
+    }
+
+    private boolean initMarginListener() {
+        //we're initializing margin listener only when needed (it can cause an exception when there are no params)
+        if (mMarginListener == null) {
+            if (!hasView()) {
+                return false;
+            }
+            mMarginListener = new MarginChangeListener(mView.get());
+        }
+        return true;
+    }
+
+    private boolean initDimensionListener() {
+        //we're initializing dimension listener only when needed (it can cause an exception when there are no params)
+        if (mDimensionListener == null) {
+            if (!hasView()) {
+                return false;
+            }
+            mDimensionListener = new DimensionChangeListener(mView.get());
+        }
+        return true;
+    }
+
+    private boolean initPaddingListener() {
+        if (mPaddingListener == null) {
+            if (!hasView()) {
+                return false;
+            }
+            mPaddingListener = new PaddingChangeListener(mView.get());
+        }
+        return true;
+    }
+
     public ViewPropertyObjectAnimator withLayer() {
         mWithLayer = true;
         return this;
@@ -357,6 +630,15 @@ public class ViewPropertyObjectAnimator {
             for (Animator.AnimatorListener listener : mListeners) {
                 animator.addListener(listener);
             }
+            if (mMarginListener != null) {
+                animator.addUpdateListener(mMarginListener);
+            }
+            if (mDimensionListener != null) {
+                animator.addUpdateListener(mDimensionListener);
+            }
+            if (mPaddingListener != null) {
+                animator.addUpdateListener(mPaddingListener);
+            }
             for (ValueAnimator.AnimatorUpdateListener listener : mUpdateListeners) {
                 animator.addUpdateListener(listener);
             }
@@ -370,7 +652,8 @@ public class ViewPropertyObjectAnimator {
         return ObjectAnimator.ofFloat(null, View.ALPHA, 1, 1);
     }
 
-    public void start(){
+    public void start() {
         get().start();
     }
+
 }
