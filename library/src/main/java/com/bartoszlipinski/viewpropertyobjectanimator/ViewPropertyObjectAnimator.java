@@ -25,6 +25,7 @@ import android.os.Build;
 import android.support.v4.util.ArrayMap;
 import android.util.Property;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.animation.Interpolator;
 
 import java.lang.ref.WeakReference;
