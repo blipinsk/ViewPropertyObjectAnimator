@@ -1,3 +1,14 @@
+Version 1.1.0 *(2015-10-14)*
+----------------------------
+
+The ability to animate `View's`:
+
+ * `dimensions`
+ * `padding`
+ * `margin`
+ 
+has been added;
+
 Version 1.0.0 *(2015-09-22)*
 ----------------------------
 
