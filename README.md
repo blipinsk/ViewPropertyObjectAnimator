@@ -8,7 +8,7 @@ Wrapper of the `ObjectAnimator` that can be used similarly to `ViewPropertyAnima
 
 `ViewPropertyObjectAnimator` is as easy to use as `ViewPropertyAnimator` and (unlike `ViewPropertyAnimator`) lets you utilize all the awesome features that `ObjectAnimator` allows (e.g. it can be used inside `AnimatorSet`).
 
-Additionally `ViewPropertyObjectAnimator` lets you animate `View's` `dimensions`, `padding` and `margin`.
+Additionally `ViewPropertyObjectAnimator` lets you animate `View's` `dimensions`, `padding`, `margin` and `scroll`.
 
 Usage
 =====
@@ -25,6 +25,7 @@ To obtain an `ObjectAnimator` object:
                 .alpha(0f)
                 .scaleX(0f)
                 .scaleY(0f)
+                .scrollY(100)
                 .height(200)
                 .topPaddingBy(10)
                 .setDuration(300)
@@ -38,7 +39,7 @@ You can grab the library via Maven Central. Just add a proper dependency inside 
 
 ```xml
 dependencies {
-    compile 'com.bartoszlipinski:viewpropertyobjectanimator:1.1.0'
+    compile 'com.bartoszlipinski:viewpropertyobjectanimator:1.2.0'
 }
 ```
 
