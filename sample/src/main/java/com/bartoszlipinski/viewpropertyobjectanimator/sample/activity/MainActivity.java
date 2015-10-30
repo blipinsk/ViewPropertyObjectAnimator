@@ -1,10 +1,13 @@
 package com.bartoszlipinski.viewpropertyobjectanimator.sample.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import com.bartoszlipinski.viewpropertyobjectanimator.ViewPropertyObjectAnimator;
 import com.bartoszlipinski.viewpropertyobjectanimator.sample.R;
@@ -15,12 +18,15 @@ import com.bartoszlipinski.viewpropertyobjectanimator.sample.R;
  */
 public class MainActivity extends Activity {
 
+    private ScrollView mScroll;
     private ImageView mImage;
+    private AnimatorSet mAnimatorSet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mScroll = (ScrollView) findViewById(R.id.scrollView);
         mImage = (ImageView) findViewById(R.id.image);
         mImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,18 +51,33 @@ public class MainActivity extends Activity {
     }
 
     private void animator() {
-        ViewPropertyObjectAnimator.animate(mImage)
-                .verticalMargin(140)
-                .rightMarginBy(10)
-                .width(600)
-                .height(700)
-                .rotationXBy(20)
-                .topPadding(10)
-                .rotationY(360)
-                .leftPaddingBy(100)
-                .rightPadding(300)
-                .setDuration(2000)
-                .start();
+        int paddingTop = getResources().getDimensionPixelSize(R.dimen.scroll_padding_top);
+
+        ObjectAnimator scrollAnimator =
+                ViewPropertyObjectAnimator.animate(mScroll)
+                        .scrollY(paddingTop)
+                        .get();
+
+        ObjectAnimator imageAnimator =
+                ViewPropertyObjectAnimator.animate(mImage)
+                        .verticalMargin(140)
+                        .rightMarginBy(10)
+                        .width(600)
+                        .height(700)
+                        .rotationXBy(20)
+                        .topPadding(10)
+                        .rotationY(360)
+                        .leftPaddingBy(100)
+                        .rightPadding(300)
+                        .get();
+
+        if (mAnimatorSet != null) {
+            mAnimatorSet.cancel();
+        }
+        mAnimatorSet = new AnimatorSet();
+        mAnimatorSet.playTogether(scrollAnimator, imageAnimator);
+        mAnimatorSet.setDuration(2000);
+        mAnimatorSet.start();
     }
 
     private void reverseAnimator() {
@@ -65,14 +86,27 @@ public class MainActivity extends Activity {
         int margin = getResources().getDimensionPixelSize(R.dimen.image_margin);
         int padding = getResources().getDimensionPixelSize(R.dimen.image_padding);
 
-        ViewPropertyObjectAnimator.animate(mImage)
-                .width(width)
-                .height(height)
-                .margin(margin)
-                .padding(padding)
-                .rotationX(0)
-                .rotationY(0)
-                .setDuration(2000)
-                .start();
+        ObjectAnimator scrollAnimator =
+                ViewPropertyObjectAnimator.animate(mScroll)
+                        .scrollY(0)
+                        .get();
+
+        ObjectAnimator imageAnimator =
+                ViewPropertyObjectAnimator.animate(mImage)
+                        .width(width)
+                        .height(height)
+                        .margin(margin)
+                        .padding(padding)
+                        .rotationX(0)
+                        .rotationY(0)
+                        .get();
+
+        if (mAnimatorSet != null) {
+            mAnimatorSet.cancel();
+        }
+        mAnimatorSet = new AnimatorSet();
+        mAnimatorSet.playTogether(scrollAnimator, imageAnimator);
+        mAnimatorSet.setDuration(2000);
+        mAnimatorSet.start();
     }
 }
