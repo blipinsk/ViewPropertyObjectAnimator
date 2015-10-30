@@ -25,7 +25,6 @@ import android.os.Build;
 import android.support.v4.util.ArrayMap;
 import android.util.Property;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.animation.Interpolator;
 
 import java.lang.ref.WeakReference;
@@ -51,6 +50,7 @@ public class ViewPropertyObjectAnimator {
     private MarginChangeListener mMarginListener;
     private DimensionChangeListener mDimensionListener;
     private PaddingChangeListener mPaddingListener;
+    private ScrollChangeListener mScrollListener;
 
     private ViewPropertyObjectAnimator(View view) {
         mView = new WeakReference<View>(view);
@@ -462,6 +462,35 @@ public class ViewPropertyObjectAnimator {
         return this;
     }
 
+    public ViewPropertyObjectAnimator scrollX(int scrollX) {
+        if (initScrollListener()) {
+            mScrollListener.scrollX(scrollX);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator scrollXBy(int scrollXBy) {
+        if (initScrollListener()) {
+            mScrollListener.scrollXBy(scrollXBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator scrollY(int scrollY) {
+        if (initScrollListener()) {
+            mScrollListener.scrollY(scrollY);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator scrollYBy(int scrollYBy) {
+        if (initScrollListener()) {
+            mScrollListener.scrollYBy(scrollYBy);
+        }
+        return this;
+    }
+
+
     private boolean initMarginListener() {
         //we're initializing margin listener only when needed (it can cause an exception when there are no params)
         if (mMarginListener == null) {
@@ -490,6 +519,16 @@ public class ViewPropertyObjectAnimator {
                 return false;
             }
             mPaddingListener = new PaddingChangeListener(mView.get());
+        }
+        return true;
+    }
+
+    private boolean initScrollListener() {
+        if (mScrollListener == null) {
+            if (!hasView()) {
+                return false;
+            }
+            mScrollListener = new ScrollChangeListener(mView.get());
         }
         return true;
     }
@@ -639,6 +678,9 @@ public class ViewPropertyObjectAnimator {
             }
             if (mPaddingListener != null) {
                 animator.addUpdateListener(mPaddingListener);
+            }
+            if (mScrollListener != null) {
+                animator.addUpdateListener(mScrollListener);
             }
             for (ValueAnimator.AnimatorUpdateListener listener : mUpdateListeners) {
                 animator.addUpdateListener(listener);
