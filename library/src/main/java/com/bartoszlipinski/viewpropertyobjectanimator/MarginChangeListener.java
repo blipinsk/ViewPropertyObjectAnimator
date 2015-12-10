@@ -69,7 +69,7 @@ class MarginChangeListener extends ChangeUpdateListener implements ValueAnimator
     }
 
     public void topMarginBy(int marginBy) {
-        mTopMargin = new IntValues(currentTopMargin(), currentLeftMargin() + marginBy);
+        mTopMargin = new IntValues(currentTopMargin(), currentTopMargin() + marginBy);
     }
 
     public void bottomMargin(int margin) {
@@ -77,7 +77,7 @@ class MarginChangeListener extends ChangeUpdateListener implements ValueAnimator
     }
 
     public void bottomMarginBy(int marginBy) {
-        mBottomMargin = new IntValues(currentBottomMargin(), currentLeftMargin() + marginBy);
+        mBottomMargin = new IntValues(currentBottomMargin(), currentBottomMargin() + marginBy);
     }
 
     public void rightMargin(int margin) {
@@ -85,7 +85,7 @@ class MarginChangeListener extends ChangeUpdateListener implements ValueAnimator
     }
 
     public void rightMarginBy(int marginBy) {
-        mRightMargin = new IntValues(currentRightMargin(), currentLeftMargin() + marginBy);
+        mRightMargin = new IntValues(currentRightMargin(), currentRightMargin() + marginBy);
     }
 
     public void horizontalMargin(int margin) {
