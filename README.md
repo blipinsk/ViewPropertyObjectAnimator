@@ -1,6 +1,7 @@
 ViewPropertyObjectAnimator
 ==================
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ViewPropertyObjectAnimator-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2625)
 [![License](https://img.shields.io/github/license/blipinsk/RecyclerViewHeader.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Maven Central](https://img.shields.io/maven-central/v/com.bartoszlipinski/viewpropertyobjectanimator.svg)](http://gradleplease.appspot.com/#viewpropertyobjectanimator)
 
