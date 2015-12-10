@@ -39,7 +39,7 @@ You can grab the library via Maven Central. Just add a proper dependency inside 
 
 ```xml
 dependencies {
-    compile 'com.bartoszlipinski:viewpropertyobjectanimator:1.2.0'
+    compile 'com.bartoszlipinski:viewpropertyobjectanimator:1.2.1'
 }
 ```
 
