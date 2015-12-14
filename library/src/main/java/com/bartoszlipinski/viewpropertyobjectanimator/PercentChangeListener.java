@@ -25,7 +25,7 @@ import android.view.ViewGroup;
  * Created by Bartosz Lipinski
  * 11.12.2015
  */
-public class PercentChangeListener extends ChangeUpdateListener implements AnimatorUpdateListener {
+class PercentChangeListener extends ChangeUpdateListener implements AnimatorUpdateListener {
 
     private final PercentLayoutHelper.PercentLayoutInfo mPercentLayoutInfo;
 
@@ -35,6 +35,7 @@ public class PercentChangeListener extends ChangeUpdateListener implements Anima
     private FloatValues mTopMarginPercent;
     private FloatValues mBottomMarginPercent;
     private FloatValues mRightMarginPercent;
+    private FloatValues mAspectRatio;
 
     PercentChangeListener(View view) {
         super(view);
@@ -42,7 +43,7 @@ public class PercentChangeListener extends ChangeUpdateListener implements Anima
         if (params == null) {
             throw new IllegalStateException("View does not have layout params yet.");
         } else if (!(params instanceof PercentLayoutHelper.PercentLayoutParams)) {
-            throw new IllegalStateException("Animating percent parameters is available only for children of PercentRelativeLayout or PercentFrameLayout.");
+            throw new IllegalStateException("Animating percent parameters (aspectRatio is also a \"percent parameter\") is available only for children of PercentRelativeLayout or PercentFrameLayout.");
         }
         mPercentLayoutInfo = ((PercentLayoutHelper.PercentLayoutParams) params).getPercentLayoutInfo();
     }
@@ -69,6 +70,10 @@ public class PercentChangeListener extends ChangeUpdateListener implements Anima
 
     private float currentBottomMarginPercent() {
         return mPercentLayoutInfo.bottomMarginPercent;
+    }
+
+    private float currentAspectRatio() {
+        return mPercentLayoutInfo.aspectRatio;
     }
 
     public void widthPercent(float widthPercent) {
@@ -163,6 +168,14 @@ public class PercentChangeListener extends ChangeUpdateListener implements Anima
         rightMarginPercentBy(marginPercentBy);
     }
 
+    public void aspectRatio(float aspectRatio) {
+        mAspectRatio = new FloatValues(currentAspectRatio(), aspectRatio);
+    }
+
+    public void aspectRatioBy(float aspectRatioBy) {
+        mAspectRatio = new FloatValues(currentAspectRatio(), currentAspectRatio() + aspectRatioBy);
+    }
+
     @Override
     public void onAnimationUpdate(ValueAnimator valueAnimator) {
         if (hasView()) {
@@ -184,6 +197,9 @@ public class PercentChangeListener extends ChangeUpdateListener implements Anima
             }
             if (mBottomMarginPercent != null) {
                 mPercentLayoutInfo.bottomMarginPercent = calculateAnimatedValue(mBottomMarginPercent.mFrom, mBottomMarginPercent.mTo, animatedFraction);
+            }
+            if (mAspectRatio != null) {
+                mPercentLayoutInfo.aspectRatio = calculateAnimatedValue(mAspectRatio.mFrom, mAspectRatio.mTo, animatedFraction);
             }
             mView.get().requestLayout();
         }

@@ -631,6 +631,20 @@ public class ViewPropertyObjectAnimator {
         return this;
     }
 
+    public ViewPropertyObjectAnimator aspectRatio(float aspectRatio) {
+        if (initPercentListener()){
+            mPercentListener.aspectRatio(aspectRatio);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator aspectRatioBy(float aspectRatioBy) {
+        if (initPercentListener()){
+            mPercentListener.aspectRatioBy(aspectRatioBy);
+        }
+        return this;
+    }
+    
     private boolean initMarginListener() {
         //we're initializing margin listener only when needed (it can cause an exception when there are no params)
         if (mMarginListener == null) {
