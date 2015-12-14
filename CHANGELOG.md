@@ -1,4 +1,9 @@
-Version 1.3.0 *(2015-12-14)*
+Version 1.4.0 *(2015-12-14)*
+----------------------------
+
+Animating `aspectRatio` (from Percent Support Library) introduced
+ 
+ Version 1.3.0 *(2015-12-14)*
 ----------------------------
 
  * Animating `percent` parameters in Percent Support Library `Views` introduced.
