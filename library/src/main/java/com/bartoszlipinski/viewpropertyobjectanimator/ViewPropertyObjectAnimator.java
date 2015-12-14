@@ -51,6 +51,7 @@ public class ViewPropertyObjectAnimator {
     private DimensionChangeListener mDimensionListener;
     private PaddingChangeListener mPaddingListener;
     private ScrollChangeListener mScrollListener;
+    private PercentChangeListener mPercentListener;
 
     private ViewPropertyObjectAnimator(View view) {
         mView = new WeakReference<View>(view);
@@ -489,7 +490,146 @@ public class ViewPropertyObjectAnimator {
         }
         return this;
     }
+    
+    public ViewPropertyObjectAnimator widthPercent(float widthPercent) {
+        if (initPercentListener()){
+            mPercentListener.widthPercent(widthPercent);
+        }
+        return this;
+    }
 
+    public ViewPropertyObjectAnimator widthPercentBy(float widthPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.widthPercentBy(widthPercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator heightPercent(float heightPercent) {
+        if (initPercentListener()){
+            mPercentListener.heightPercent(heightPercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator heightPercentBy(float heightPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.heightPercentBy(heightPercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator sizePercent(int sizePercent) {
+        if (initPercentListener()){
+            mPercentListener.sizePercent(sizePercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator sizePercentBy(int sizePercentBy) {
+        if (initPercentListener()){
+            mPercentListener.sizePercentBy(sizePercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator leftMarginPercent(float marginPercent) {
+        if (initPercentListener()){
+            mPercentListener.leftMarginPercent(marginPercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator leftMarginPercentBy(float marginPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.leftMarginPercentBy(marginPercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator topMarginPercent(float marginPercent) {
+        if (initPercentListener()){
+            mPercentListener.topMarginPercent(marginPercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator topMarginPercentBy(float marginPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.topMarginPercentBy(marginPercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator bottomMarginPercent(float marginPercent) {
+        if (initPercentListener()){
+            mPercentListener.bottomMarginPercent(marginPercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator bottomMarginPercentBy(float marginPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.bottomMarginPercentBy(marginPercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator rightMarginPercent(float marginPercent) {
+        if (initPercentListener()){
+            mPercentListener.rightMarginPercent(marginPercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator rightMarginPercentBy(float marginPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.rightMarginPercentBy(marginPercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator horizontalMarginPercent(float marginPercent) {
+        if (initPercentListener()){
+            mPercentListener.horizontalMarginPercent(marginPercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator horizontalMarginPercentBy(float marginPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.horizontalMarginPercentBy(marginPercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator verticalMarginPercent(float marginPercent) {
+        if (initPercentListener()){
+            mPercentListener.verticalMarginPercent(marginPercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator verticalMarginPercentBy(float marginPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.verticalMarginPercentBy(marginPercentBy);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator marginPercent(float marginPercent) {
+        if (initPercentListener()){
+            mPercentListener.marginPercent(marginPercent);
+        }
+        return this;
+    }
+
+    public ViewPropertyObjectAnimator marginPercentBy(float marginPercentBy) {
+        if (initPercentListener()){
+            mPercentListener.marginPercentBy(marginPercentBy);
+        }
+        return this;
+    }
 
     private boolean initMarginListener() {
         //we're initializing margin listener only when needed (it can cause an exception when there are no params)
@@ -529,6 +669,16 @@ public class ViewPropertyObjectAnimator {
                 return false;
             }
             mScrollListener = new ScrollChangeListener(mView.get());
+        }
+        return true;
+    }
+
+    private boolean initPercentListener() {
+        if (mPercentListener ==null){
+            if (!hasView()){
+                return false;
+            }
+            mPercentListener = new PercentChangeListener(mView.get());
         }
         return true;
     }
@@ -634,6 +784,13 @@ public class ViewPropertyObjectAnimator {
         return mView.get() != null;
     }
 
+    public ObjectAnimator waitForAnimationStart(){
+        if (hasView()){
+
+        }
+        return ObjectAnimator.ofFloat(null, View.ALPHA, 1, 1);
+    }
+
     @SuppressLint("NewApi")
     public ObjectAnimator get() {
         if (hasView()) {
@@ -681,6 +838,9 @@ public class ViewPropertyObjectAnimator {
             }
             if (mScrollListener != null) {
                 animator.addUpdateListener(mScrollListener);
+            }
+            if (mPercentListener != null) {
+                animator.addUpdateListener(mPercentListener);
             }
             for (ValueAnimator.AnimatorUpdateListener listener : mUpdateListeners) {
                 animator.addUpdateListener(listener);

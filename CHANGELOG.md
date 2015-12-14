@@ -1,3 +1,9 @@
+Version 1.3.0 *(2015-12-14)*
+----------------------------
+
+ * Animating `percent` parameters in Percent Support Library `Views` introduced.
+ * Support Libraries no longer included in the aar.
+
 Version 1.2.1 *(2015-12-10)*
 ----------------------------
 
