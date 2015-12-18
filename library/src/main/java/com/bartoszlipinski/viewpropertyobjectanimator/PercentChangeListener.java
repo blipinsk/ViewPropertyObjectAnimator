@@ -42,8 +42,13 @@ class PercentChangeListener extends ChangeUpdateListener implements AnimatorUpda
         ViewGroup.LayoutParams params = view.getLayoutParams();
         if (params == null) {
             throw new IllegalStateException("View does not have layout params yet.");
-        } else if (!(params instanceof PercentLayoutHelper.PercentLayoutParams)) {
-            throw new IllegalStateException("Animating percent parameters (aspectRatio is also a \"percent parameter\") is available only for children of PercentRelativeLayout or PercentFrameLayout.");
+        }
+        try {
+            if (!(params instanceof PercentLayoutHelper.PercentLayoutParams)) {
+                throw new IllegalStateException("Animating percent parameters (aspectRatio is also a \"percent parameter\") is available only for children of PercentRelativeLayout or PercentFrameLayout (part of the Percent Support Library).");
+            }
+        } catch (NoClassDefFoundError error) {
+            throw new IllegalStateException("Animating percent parameters (aspectRatio is also a \"percent parameter\") is available only for children of PercentRelativeLayout or PercentFrameLayout (part of the Percent Support Library).");
         }
         mPercentLayoutInfo = ((PercentLayoutHelper.PercentLayoutParams) params).getPercentLayoutInfo();
     }
@@ -97,7 +102,7 @@ class PercentChangeListener extends ChangeUpdateListener implements AnimatorUpda
         heightPercent(sizePercent);
     }
 
-    public void sizePercentBy(int sizePercentBy) {
+    public void sizePercentBy(float sizePercentBy) {
         widthPercentBy(sizePercentBy);
         heightPercentBy(sizePercentBy);
     }
