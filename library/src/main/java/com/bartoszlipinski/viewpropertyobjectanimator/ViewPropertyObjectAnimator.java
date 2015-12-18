@@ -798,13 +798,6 @@ public class ViewPropertyObjectAnimator {
         return mView.get() != null;
     }
 
-    public ObjectAnimator waitForAnimationStart(){
-        if (hasView()){
-
-        }
-        return ObjectAnimator.ofFloat(null, View.ALPHA, 1, 1);
-    }
-
     @SuppressLint("NewApi")
     public ObjectAnimator get() {
         if (hasView()) {
