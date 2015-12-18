@@ -1,4 +1,9 @@
-Version 1.4.1 *(2015-12-18)*
+Version 1.4.2 *(2015-12-18)*
+----------------------------
+
+ * A temp method (`waitForAnimationStart()`) mistakenly included in the 1.3.0 release has been removed
+ 
+ Version 1.4.1 *(2015-12-18)*
 ----------------------------
 
  * Added missing exception when there's no Percent Support Library in the project and user is trying to animate percent parameters
