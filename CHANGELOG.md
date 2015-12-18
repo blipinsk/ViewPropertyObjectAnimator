@@ -1,3 +1,9 @@
+Version 1.4.1 *(2015-12-18)*
+----------------------------
+
+ * Added missing exception when there's no Percent Support Library in the project and user is trying to animate percent parameters
+ * Size percent argument type corrected
+
 Version 1.4.0 *(2015-12-14)*
 ----------------------------
 
