@@ -102,7 +102,7 @@ class PercentChangeListener extends ChangeUpdateListener implements AnimatorUpda
         heightPercent(sizePercent);
     }
 
-    public void sizePercentBy(int sizePercentBy) {
+    public void sizePercentBy(float sizePercentBy) {
         widthPercentBy(sizePercentBy);
         heightPercentBy(sizePercentBy);
     }

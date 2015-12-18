@@ -519,14 +519,14 @@ public class ViewPropertyObjectAnimator {
         return this;
     }
 
-    public ViewPropertyObjectAnimator sizePercent(int sizePercent) {
+    public ViewPropertyObjectAnimator sizePercent(float sizePercent) {
         if (initPercentListener()){
             mPercentListener.sizePercent(sizePercent);
         }
         return this;
     }
 
-    public ViewPropertyObjectAnimator sizePercentBy(int sizePercentBy) {
+    public ViewPropertyObjectAnimator sizePercentBy(float sizePercentBy) {
         if (initPercentListener()){
             mPercentListener.sizePercentBy(sizePercentBy);
         }
