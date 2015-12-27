@@ -807,12 +807,12 @@ public class ViewPropertyObjectAnimator {
                             holders.toArray(new PropertyValuesHolder[holders.size()]));
             if (mWithLayer) {
                 animator.addListener(new AnimatorListenerAdapter() {
-                    int currentLayerType = View.LAYER_TYPE_NONE;
+                    int mCurrentLayerType = View.LAYER_TYPE_NONE;
                     @Override
                     public void onAnimationStart(Animator animation) {
                         if (hasView()) {
                             View view = mView.get();
-                            currentLayerType = view.getLayerType();
+                            mCurrentLayerType = view.getLayerType();
                             view.setLayerType(View.LAYER_TYPE_HARDWARE, null);
                             if(view.isAttachedToWindow()) {
                                 view.buildLayer();
@@ -823,7 +823,7 @@ public class ViewPropertyObjectAnimator {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         if (hasView()) {
-                            mView.get().setLayerType(currentLayerType, null);
+                            mView.get().setLayerType(mCurrentLayerType, null);
                         }
                     }
                 });
