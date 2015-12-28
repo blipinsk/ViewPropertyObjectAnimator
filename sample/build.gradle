@@ -8,8 +8,8 @@ android {
         applicationId "com.bartoszlipinski.viewpropertyobjectanimator.sample"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 8
-        versionName "1.4.2"
+        versionCode 9
+        versionName "1.4.3"
     }
     buildTypes {
         release {
