@@ -1,3 +1,8 @@
+Version 1.4.4 *(2015-12-29)*
+----------------------------
+
+`Runnable` passed in `withEndAction` no longer getting called when animation is canceled. 
+ 
 Version 1.4.3 *(2015-12-28)*
 ----------------------------
 
