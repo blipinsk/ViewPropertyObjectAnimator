@@ -786,9 +786,18 @@ public class ViewPropertyObjectAnimator {
 
     public ViewPropertyObjectAnimator withEndAction(final Runnable runnable) {
         return addListener(new AnimatorListenerAdapter() {
+            private boolean mIsCanceled;
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                mIsCanceled = true;
+            }
+
             @Override
             public void onAnimationEnd(Animator animation) {
-                runnable.run();
+                if (!mIsCanceled) {
+                    runnable.run();
+                }
                 removeListener(this);
             }
         });
