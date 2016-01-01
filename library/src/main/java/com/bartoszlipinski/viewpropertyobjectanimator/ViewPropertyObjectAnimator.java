@@ -735,6 +735,7 @@ public class ViewPropertyObjectAnimator {
 
     public ViewPropertyObjectAnimator removeAllListeners() {
         mListeners.clear();
+        mUpdateListeners.clear();
         return this;
     }
 
