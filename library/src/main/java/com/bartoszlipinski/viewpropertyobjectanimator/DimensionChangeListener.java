@@ -27,8 +27,8 @@ class DimensionChangeListener extends ChangeUpdateListener implements ValueAnima
 
     private final ViewGroup.LayoutParams mParams;
 
-    private IntValues mWidth;
-    private IntValues mHeight;
+    IntValues mWidth;
+    IntValues mHeight;
 
     DimensionChangeListener(View view) {
         super(view);
@@ -38,11 +38,11 @@ class DimensionChangeListener extends ChangeUpdateListener implements ValueAnima
         }
     }
 
-    private int currentWidth() {
+    int currentWidth() {
         return mParams.width > 0 ? mParams.width : hasView() ? mView.get().getWidth() : 0;
     }
 
-    private int currentHeight() {
+    int currentHeight() {
         return mParams.height > 0 ? mParams.height : hasView() ? mView.get().getHeight() : 0;
     }
 
@@ -62,12 +62,12 @@ class DimensionChangeListener extends ChangeUpdateListener implements ValueAnima
         mHeight = new IntValues(currentHeight(), currentHeight() + heightBy);
     }
 
-    public void size(int size){
+    public void size(int size) {
         width(size);
         height(size);
     }
 
-    public void sizeBy(int sizeBy){
+    public void sizeBy(int sizeBy) {
         widthBy(sizeBy);
         heightBy(sizeBy);
     }

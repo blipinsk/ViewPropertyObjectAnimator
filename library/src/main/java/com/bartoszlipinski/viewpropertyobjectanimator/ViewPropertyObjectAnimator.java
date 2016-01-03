@@ -47,11 +47,11 @@ public class ViewPropertyObjectAnimator {
     private List<ValueAnimator.AnimatorUpdateListener> mUpdateListeners = new ArrayList<>();
     private List<Animator.AnimatorPauseListener> mPauseListeners = new ArrayList<>();
     private ArrayMap<Property<View, Float>, PropertyValuesHolder> mPropertyHoldersMap = new ArrayMap<>();
-    private MarginChangeListener mMarginListener;
-    private DimensionChangeListener mDimensionListener;
-    private PaddingChangeListener mPaddingListener;
-    private ScrollChangeListener mScrollListener;
-    private PercentChangeListener mPercentListener;
+    MarginChangeListener mMarginListener;
+    DimensionChangeListener mDimensionListener;
+    PaddingChangeListener mPaddingListener;
+    ScrollChangeListener mScrollListener;
+    PercentChangeListener mPercentListener;
 
     private ViewPropertyObjectAnimator(View view) {
         mView = new WeakReference<View>(view);
@@ -490,161 +490,161 @@ public class ViewPropertyObjectAnimator {
         }
         return this;
     }
-    
+
     public ViewPropertyObjectAnimator widthPercent(float widthPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.widthPercent(widthPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator widthPercentBy(float widthPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.widthPercentBy(widthPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator heightPercent(float heightPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.heightPercent(heightPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator heightPercentBy(float heightPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.heightPercentBy(heightPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator sizePercent(float sizePercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.sizePercent(sizePercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator sizePercentBy(float sizePercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.sizePercentBy(sizePercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator leftMarginPercent(float marginPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.leftMarginPercent(marginPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator leftMarginPercentBy(float marginPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.leftMarginPercentBy(marginPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator topMarginPercent(float marginPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.topMarginPercent(marginPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator topMarginPercentBy(float marginPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.topMarginPercentBy(marginPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator bottomMarginPercent(float marginPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.bottomMarginPercent(marginPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator bottomMarginPercentBy(float marginPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.bottomMarginPercentBy(marginPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator rightMarginPercent(float marginPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.rightMarginPercent(marginPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator rightMarginPercentBy(float marginPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.rightMarginPercentBy(marginPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator horizontalMarginPercent(float marginPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.horizontalMarginPercent(marginPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator horizontalMarginPercentBy(float marginPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.horizontalMarginPercentBy(marginPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator verticalMarginPercent(float marginPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.verticalMarginPercent(marginPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator verticalMarginPercentBy(float marginPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.verticalMarginPercentBy(marginPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator marginPercent(float marginPercent) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.marginPercent(marginPercent);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator marginPercentBy(float marginPercentBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.marginPercentBy(marginPercentBy);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator aspectRatio(float aspectRatio) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.aspectRatio(aspectRatio);
         }
         return this;
     }
 
     public ViewPropertyObjectAnimator aspectRatioBy(float aspectRatioBy) {
-        if (initPercentListener()){
+        if (initPercentListener()) {
             mPercentListener.aspectRatioBy(aspectRatioBy);
         }
         return this;
     }
-    
+
     private boolean initMarginListener() {
         //we're initializing margin listener only when needed (it can cause an exception when there are no params)
         if (mMarginListener == null) {
@@ -688,8 +688,8 @@ public class ViewPropertyObjectAnimator {
     }
 
     private boolean initPercentListener() {
-        if (mPercentListener ==null){
-            if (!hasView()){
+        if (mPercentListener == null) {
+            if (!hasView()) {
                 return false;
             }
             mPercentListener = new PercentChangeListener(mView.get());
@@ -817,13 +817,14 @@ public class ViewPropertyObjectAnimator {
             if (mWithLayer) {
                 animator.addListener(new AnimatorListenerAdapter() {
                     int mCurrentLayerType = View.LAYER_TYPE_NONE;
+
                     @Override
                     public void onAnimationStart(Animator animation) {
                         if (hasView()) {
                             View view = mView.get();
                             mCurrentLayerType = view.getLayerType();
                             view.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-                            if(view.isAttachedToWindow()) {
+                            if (view.isAttachedToWindow()) {
                                 view.buildLayer();
                             }
                         }
