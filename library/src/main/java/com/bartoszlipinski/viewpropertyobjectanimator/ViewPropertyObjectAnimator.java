@@ -23,6 +23,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.support.v4.util.ArrayMap;
+import android.support.v4.view.ViewCompat;
 import android.util.Property;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -823,7 +824,7 @@ public class ViewPropertyObjectAnimator {
                             View view = mView.get();
                             mCurrentLayerType = view.getLayerType();
                             view.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-                            if(view.isAttachedToWindow()) {
+                            if(ViewCompat.isAttachedToWindow(view)) {
                                 view.buildLayer();
                             }
                         }
