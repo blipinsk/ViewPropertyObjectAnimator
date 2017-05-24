@@ -22,18 +22,20 @@ To obtain an `ObjectAnimator` object:
   2. Call specific `ViewPropertyObjectAnimator` methods to setup an animation of desired properties (just like you would when using `ViewPropertyAnimator`)
   3. Call `get()` method, like so:
 
-        ObjectAnimator animator = ViewPropertyObjectAnimator
-                .animate(mView)
-                .withLayer()
-                .alpha(0f)
-                .scaleX(0f)
-                .scaleY(0f)
-                .scrollY(100)
-                .height(200)
-                .topPaddingBy(10)
-                .setDuration(300)
-                .setInterpolator(new AnticipateInterpolator())
-                .get();
+      ```java
+      ObjectAnimator animator = ViewPropertyObjectAnimator
+              .animate(mView)
+              .withLayer()
+              .alpha(0f)
+              .scaleX(0f)
+              .scaleY(0f)
+              .scrollY(100)
+              .height(200)
+              .topPaddingBy(10)
+              .setDuration(300)
+              .setInterpolator(new AnticipateInterpolator())
+              .get();
+        ```
 
 
 Including In Your Project
