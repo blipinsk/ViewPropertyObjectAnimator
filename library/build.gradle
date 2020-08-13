@@ -1,5 +1,11 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'maven-publish'
+version = "1.0.0"
+group = "com.github.NicolaChimerapps"
+archivesBaseName = "ViePropertyObjectAnimator"
+
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -24,4 +30,19 @@ dependencies {
     compileOnly 'androidx.percentlayout:percentlayout:1.0.0'
 }
 
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = group
+                artifactId = archivesBaseName
+                version = version
+            }
+        }
+    }
+}
