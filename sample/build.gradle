@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
 
     defaultConfig {
         applicationId "com.bartoszlipinski.viewpropertyobjectanimator.sample"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 29
         versionCode 11
         versionName "1.4.5"
     }
@@ -22,5 +22,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':library')
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'androidx.appcompat:appcompat:1.2.0'
 }

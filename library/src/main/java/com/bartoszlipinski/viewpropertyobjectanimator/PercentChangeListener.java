@@ -17,7 +17,7 @@ package com.bartoszlipinski.viewpropertyobjectanimator;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
-import android.support.percent.PercentLayoutHelper;
+import androidx.percentlayout.widget.PercentLayoutHelper;
 import android.view.View;
 import android.view.ViewGroup;
 
