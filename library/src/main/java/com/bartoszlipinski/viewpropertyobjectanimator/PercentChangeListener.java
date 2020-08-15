@@ -45,10 +45,10 @@ class PercentChangeListener extends ChangeUpdateListener implements AnimatorUpda
         }
         try {
             if (!(params instanceof PercentLayoutHelper.PercentLayoutParams)) {
-                throw new IllegalStateException("Animating percent parameters (aspectRatio is also a \"percent parameter\") is available only for children of PercentRelativeLayout or PercentFrameLayout (part of the Percent Support Library).");
+                throw new IllegalStateException("Animating percent parameters (aspectRatio is also a \"percent parameter\") is available only for children of PercentRelativeLayout or PercentFrameLayout (part of the Percent AndroidX library).");
             }
         } catch (NoClassDefFoundError error) {
-            throw new IllegalStateException("Animating percent parameters (aspectRatio is also a \"percent parameter\") is available only for children of PercentRelativeLayout or PercentFrameLayout (part of the Percent Support Library).");
+            throw new IllegalStateException("Animating percent parameters (aspectRatio is also a \"percent parameter\") is available only for children of PercentRelativeLayout or PercentFrameLayout (part of the Percent AndroidX Library).");
         }
         mPercentLayoutInfo = ((PercentLayoutHelper.PercentLayoutParams) params).getPercentLayoutInfo();
     }
