@@ -11,7 +11,7 @@ Wrapper of the `ObjectAnimator` that can be used similarly to `ViewPropertyAnima
 
 Additionally `ViewPropertyObjectAnimator` lets you animate `View's` `dimensions`, `padding`, `margin` and `scroll`.
 
-`ViewPropertyObjectAnimator` can be also used to animate `percent` parameters from [Percent Support Library ](http://developer.android.com/tools/support-library/features.html#percent).
+`ViewPropertyObjectAnimator` can be also used to animate `percent` parameters from [Percent AndroidX Library ](https://developer.android.com/jetpack/androidx/releases/percentlayout).
 
 Usage
 =====
