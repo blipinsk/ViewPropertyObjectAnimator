@@ -20,5 +20,3 @@ android {
 dependencies {
     compileOnly 'androidx.percentlayout:percentlayout:1.0.0'
 }
-
-apply from: rootProject.file('gradle/upload_to_bintray.gradle')

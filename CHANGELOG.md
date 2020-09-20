@@ -1,23 +1,28 @@
+Version 1.5.0 *(2020-09-20)*
+----------------------------
+
+* AndroidX :tada:
+
 Version 1.4.5 *(2016-04-04)*
 ----------------------------
 
-Fixed accidental API 19 usage 
+Fixed accidental API 19 usage
 
 Version 1.4.4 *(2015-12-29)*
 ----------------------------
 
-`Runnable` passed in `withEndAction` no longer getting called when animation is canceled. 
- 
+`Runnable` passed in `withEndAction` no longer getting called when animation is canceled.
+
 Version 1.4.3 *(2015-12-28)*
 ----------------------------
 
 Restoring previously used `LayerType` when using `withLayer()` option.
- 
+
 Version 1.4.2 *(2015-12-18)*
 ----------------------------
 
 A temp method (`waitForAnimationStart()`) mistakenly included in the 1.3.0 release has been removed
- 
+
 Version 1.4.1 *(2015-12-18)*
 ----------------------------
 
@@ -28,7 +33,7 @@ Version 1.4.0 *(2015-12-14)*
 ----------------------------
 
 Animating `aspectRatio` (from Percent Support Library) introduced
- 
+
  Version 1.3.0 *(2015-12-14)*
 ----------------------------
 
@@ -53,7 +58,7 @@ The ability to animate `View's`:
  * `dimensions`
  * `padding`
  * `margin`
- 
+
 has been added;
 
 Version 1.0.0 *(2015-09-22)*

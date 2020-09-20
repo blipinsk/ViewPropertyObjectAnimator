@@ -3,7 +3,8 @@ ViewPropertyObjectAnimator
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ViewPropertyObjectAnimator-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2625)
 [![License](https://img.shields.io/github/license/blipinsk/RecyclerViewHeader.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Maven Central](https://img.shields.io/maven-central/v/com.bartoszlipinski/viewpropertyobjectanimator.svg)](http://gradleplease.appspot.com/#viewpropertyobjectanimator)
+[![](https://jitpack.io/v/blipinsk/ViewPropertyObjectAnimator.svg)](https://jitpack.io/#blipinsk/ViewPropertyObjectAnimator)
+[![maven-central](https://img.shields.io/maven-central/v/com.bartoszlipinski/viewpropertyobjectanimator?label=maven-central) ](https://search.maven.org/search?q=g:com.bartoszlipinski%20AND%20a:viewpropertyobjectanimator)
 
 Wrapper of the `ObjectAnimator` that can be used similarly to `ViewPropertyAnimator`.
 
@@ -40,11 +41,17 @@ To obtain an `ObjectAnimator` object:
 
 Including In Your Project
 -------------------------
-You can grab the library via Maven Central. Just add a proper dependency inside your `build.gradle`. Like this:
-
+Add in your `build.gradle`:
 ```xml
+allprojects {
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
+}
+
 dependencies {
-    compile 'com.bartoszlipinski:viewpropertyobjectanimator:1.4.5'
+    implementation "com.bartoszlipinski:viewpropertyobjectanimator:1.5.0"
 }
 ```
 
@@ -56,7 +63,7 @@ License
 =======
 
     Copyright 2015 Bartosz Lipiński
-    
+
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
