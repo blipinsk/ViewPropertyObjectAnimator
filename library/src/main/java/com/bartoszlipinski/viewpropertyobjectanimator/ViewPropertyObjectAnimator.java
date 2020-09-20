@@ -22,8 +22,6 @@ import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.os.Build;
-import android.support.v4.util.ArrayMap;
-import android.support.v4.view.ViewCompat;
 import android.util.Property;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -31,7 +29,9 @@ import android.view.animation.Interpolator;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Bartosz Lipinski
@@ -47,7 +47,7 @@ public class ViewPropertyObjectAnimator {
     private List<Animator.AnimatorListener> mListeners = new ArrayList<>();
     private List<ValueAnimator.AnimatorUpdateListener> mUpdateListeners = new ArrayList<>();
     private List<Animator.AnimatorPauseListener> mPauseListeners = new ArrayList<>();
-    private ArrayMap<Property<View, Float>, PropertyValuesHolder> mPropertyHoldersMap = new ArrayMap<>();
+    private Map<Property<View, Float>, PropertyValuesHolder> mPropertyHoldersMap = new HashMap<>();
     private MarginChangeListener mMarginListener;
     private DimensionChangeListener mDimensionListener;
     private PaddingChangeListener mPaddingListener;
@@ -824,7 +824,7 @@ public class ViewPropertyObjectAnimator {
                             View view = mView.get();
                             mCurrentLayerType = view.getLayerType();
                             view.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-                            if(ViewCompat.isAttachedToWindow(view)) {
+                            if(isAttachedToWindow(view)) {
                                 view.buildLayer();
                             }
                         }
@@ -880,6 +880,13 @@ public class ViewPropertyObjectAnimator {
 
     public void start() {
         get().start();
+    }
+
+    private static boolean isAttachedToWindow(View view){
+        if (Build.VERSION.SDK_INT >= 19) {
+            return view.isAttachedToWindow();
+        }
+        return view.getWindowToken() != null;
     }
 
 }
