@@ -5,12 +5,12 @@ repositories {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.bartoszlipinski.viewpropertyobjectanimator.sample"
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 33
         versionCode buildConfig.version.code
         versionName buildConfig.version.name
     }
@@ -20,12 +20,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.bartoszlipinski.viewpropertyobjectanimator.sample'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
 
-//        implementation project(':viewpropertyobjectanimator')
+//    implementation project(':viewpropertyobjectanimator')
     implementation "com.bartoszlipinski:viewpropertyobjectanimator:1.5.0"
 }
