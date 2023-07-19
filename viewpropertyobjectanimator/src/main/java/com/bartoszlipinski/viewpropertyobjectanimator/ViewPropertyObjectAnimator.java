@@ -44,10 +44,10 @@ public class ViewPropertyObjectAnimator {
     private long mStartDelay = -1;
     private boolean mWithLayer = false;
     private Interpolator mInterpolator;
-    private List<Animator.AnimatorListener> mListeners = new ArrayList<>();
-    private List<ValueAnimator.AnimatorUpdateListener> mUpdateListeners = new ArrayList<>();
-    private List<Animator.AnimatorPauseListener> mPauseListeners = new ArrayList<>();
-    private Map<Property<View, Float>, PropertyValuesHolder> mPropertyHoldersMap = new HashMap<>();
+    private final List<Animator.AnimatorListener> mListeners = new ArrayList<>();
+    private final List<ValueAnimator.AnimatorUpdateListener> mUpdateListeners = new ArrayList<>();
+    private final List<Animator.AnimatorPauseListener> mPauseListeners = new ArrayList<>();
+    private final Map<Property<View, Float>, PropertyValuesHolder> mPropertyHoldersMap = new HashMap<>();
     private MarginChangeListener mMarginListener;
     private DimensionChangeListener mDimensionListener;
     private PaddingChangeListener mPaddingListener;
@@ -55,7 +55,7 @@ public class ViewPropertyObjectAnimator {
     private PercentChangeListener mPercentListener;
 
     private ViewPropertyObjectAnimator(View view) {
-        mView = new WeakReference<View>(view);
+        mView = new WeakReference<>(view);
     }
 
     public static ViewPropertyObjectAnimator animate(View view) {
@@ -814,7 +814,7 @@ public class ViewPropertyObjectAnimator {
             Collection<PropertyValuesHolder> holders = mPropertyHoldersMap.values();
             ObjectAnimator animator =
                     ObjectAnimator.ofPropertyValuesHolder(mView.get(),
-                            holders.toArray(new PropertyValuesHolder[holders.size()]));
+                            holders.toArray(new PropertyValuesHolder[0]));
             if (mWithLayer) {
                 animator.addListener(new AnimatorListenerAdapter() {
                     int mCurrentLayerType = View.LAYER_TYPE_NONE;

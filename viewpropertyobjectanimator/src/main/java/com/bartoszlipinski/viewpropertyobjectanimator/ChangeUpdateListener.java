@@ -28,7 +28,7 @@ abstract class ChangeUpdateListener {
     protected final WeakReference<View> mView;
 
     public ChangeUpdateListener(View view) {
-        this.mView =  new WeakReference<View>(view);
+        this.mView = new WeakReference<>(view);
     }
 
     public float calculateAnimatedValue(float initialValue, float targetValue, float animationFraction) {
@@ -39,7 +39,7 @@ abstract class ChangeUpdateListener {
         return mView.get() != null;
     }
 
-    protected class IntValues {
+    protected static class IntValues {
         public int mFrom;
         public int mTo;
 
@@ -49,7 +49,7 @@ abstract class ChangeUpdateListener {
         }
     }
 
-    protected class FloatValues {
+    protected static class FloatValues {
         public float mFrom;
         public float mTo;
 

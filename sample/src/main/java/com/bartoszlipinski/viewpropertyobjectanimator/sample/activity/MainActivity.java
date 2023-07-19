@@ -5,7 +5,6 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 
@@ -26,28 +25,19 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mScroll = (ScrollView) findViewById(R.id.scrollView);
-        mImage = (ImageView) findViewById(R.id.image);
-        mImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isSelectedAfterClick = !v.isSelected();
-                v.setSelected(isSelectedAfterClick);
-                if (isSelectedAfterClick) {
-                    reverseAnimator();
-                } else {
-                    animator();
-                }
+        mScroll = findViewById(R.id.scrollView);
+        mImage = findViewById(R.id.image);
+        mImage.setOnClickListener(v -> {
+            boolean isSelectedAfterClick = !v.isSelected();
+            v.setSelected(isSelectedAfterClick);
+            if (isSelectedAfterClick) {
+                reverseAnimator();
+            } else {
+                animator();
             }
         });
         final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                animator();
-            }
-
-        }, 500);
+        handler.postDelayed(this::animator, 500);
     }
 
     private void animator() {
